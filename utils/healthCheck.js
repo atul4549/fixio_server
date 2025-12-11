@@ -33,7 +33,7 @@ router.get('/health/detailed', async (req, res) => {
     // Check Redis connection
     // await redis.ping();
     
-    res.status(200).json(healthCheck);
+    return res.status(200).json(healthCheck);
   } catch (error) {
     healthCheck.status = 'DOWN';
     healthCheck.error = error.message;
