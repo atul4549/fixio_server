@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Simple health check endpoint
 router.get('/health', (req, res) => {
-  res.status(200).json({
+  return res.status(200).json({
     status: 'UP',
     timestamp: new Date().toISOString(),
     service: 'Your Backend Service',
