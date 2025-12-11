@@ -5,6 +5,7 @@ import cors from "cors";
 
 import path from "path";
 import { healthRouter } from "./utils/healthCheck.js";
+import { app, server } from "./utils/socket.js";
 
 // import { connectDB } from "./lib/db.js";
 
