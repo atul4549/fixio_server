@@ -105,7 +105,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import helmet from "helmet";
 import compression from "compression";
-import rateLimit from "express-rate-limit";
+// import rateLimit from "express-rate-limit";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -140,16 +140,16 @@ app.use(helmet({
 app.use(compression());
 
 // Rate limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: NODE_ENV === "production" ? 100 : 1000, // limit each IP to 100 requests per windowMs in production
-  message: "Too many requests from this IP, please try again later.",
-  standardHeaders: true,
-  legacyHeaders: false,
-});
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 minutes
+//   max: NODE_ENV === "production" ? 100 : 1000, // limit each IP to 100 requests per windowMs in production
+//   message: "Too many requests from this IP, please try again later.",
+//   standardHeaders: true,
+//   legacyHeaders: false,
+// });
 
 // Apply rate limiting to API routes
-app.use("/api/", limiter);
+// app.use("/api/", limiter);
 
 // CORS configuration
 const corsOptions = {
