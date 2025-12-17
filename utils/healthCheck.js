@@ -1,44 +1,44 @@
 // healthCheck.js
 // const express = require('express');
-import express  from 'express'
+import express from "express";
 
-const router = express.Router();
+const healthRouter = express.Router();
 
 // Simple health check endpoint
-router.get('/health', (req, res) => {
+healthRouter.get("/health", (req, res) => {
   return res.status(200).json({
-    status: 'UP',
+    status: "UP",
     timestamp: new Date().toISOString(),
-    service: 'Your Backend Service',
-    version: process.env.npm_package_version || '1.0.0'
+    service: "Your Backend Service",
+    version: ENV.npm_package_version || "1.0.0",
   });
 });
 
 // Detailed health check with dependencies
-router.get('/health/detailed', async (req, res) => {
+healthRouter.get("/health/detailed", async (req, res) => {
   const healthCheck = {
-    status: 'UP',
+    status: "UP",
     timestamp: new Date().toISOString(),
     checks: {
-      database: { status: 'UP' },
-      redis: { status: 'UP' },
-      externalService: { status: 'UP' }
-    }
+      database: { status: "UP" },
+      redis: { status: "UP" },
+      externalService: { status: "UP" },
+    },
   };
 
   try {
     // Check database connection
     // await database.ping();
-    
+
     // Check Redis connection
     // await redis.ping();
-    
+
     return res.status(200).json(healthCheck);
   } catch (error) {
-    healthCheck.status = 'DOWN';
+    healthCheck.status = "DOWN";
     healthCheck.error = error.message;
     res.status(503).json(healthCheck);
   }
 });
-export {router as healthRouter}
+export { healthRouter };
 // module.exports = router;
