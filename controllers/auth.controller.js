@@ -1,6 +1,7 @@
 import { generateToken } from "../lib/utils.js";
 // import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
+import { User } from "../models/user.model.js";
 // import cloudinary from "../lib/cloudinary.js";
 
 export const signup = async (req, res) => {
@@ -22,7 +23,7 @@ export const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-      fullName,
+      username: fullName,
       email,
       password: hashedPassword,
     });

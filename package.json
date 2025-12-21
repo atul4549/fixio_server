@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/atul4549/fixio_server#readme",
   "dependencies": {
+    "@clerk/clerk-sdk-node": "^4.13.23",
+    "@clerk/express": "^1.7.58",
     "bcryptjs": "^3.0.3",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
@@ -28,10 +30,11 @@
     "helmet": "^8.1.0",
     "http": "^0.0.1-security",
     "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.0.0",
     "mongoose": "^9.0.1",
     "nodemailer": "^7.0.11",
     "socket.io": "^4.8.1",
-    "twilio": "^5.10.7"
+    "twilio": "^5.11.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
